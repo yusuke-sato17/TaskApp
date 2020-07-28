@@ -28,6 +28,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        searchButton.setOnClickListener {
+            if (categorySearch.text.toString() == "") {
+                reloadListView()
+            } else {
+                val results = mRealm.where(Task::class.java).equalTo("category", categorySearch.text.toString()).findAll()
+                mTaskAdapter.taskList = mRealm.copyFromRealm(results)
+                listView1.adapter = mTaskAdapter
+                mTaskAdapter.notifyDataSetChanged()
+            }
+        }
+
         fab.setOnClickListener { view ->
             val intent = Intent(this@MainActivity, InputActivity::class.java)
             startActivity(intent)
