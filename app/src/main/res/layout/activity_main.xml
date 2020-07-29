@@ -30,6 +30,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    </LinearLayout>
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -39,7 +41,6 @@
         android:src="@drawable/plus"
         app:backgroundTint="@color/colorPrimary" />
 
-    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>
 
